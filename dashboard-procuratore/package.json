@@ -2,14 +2,13 @@
   "name": "dashboard-procuratore",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+     "ng": "ng",
+    "start": "ng serve --serve-path /dashboard-procuratore/",
+    "build": "ng build --base-href /dashboard-procuratore/",
+    "build:prod": "ng build --configuration production --base-href /dashboard-procuratore/",
     "test": "ng test",
-    "serve:ssr:dashboard-procuratore": "node dist/dashboard-procuratore/server/server.mjs",
-    "build:prod": "ng build --configuration production && npm run copy-bootstrap",
-    "copy-bootstrap": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js dist/dashboard-procuratore/"
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "prettier": {
     "printWidth": 100,

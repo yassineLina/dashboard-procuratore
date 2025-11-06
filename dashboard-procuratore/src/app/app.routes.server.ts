@@ -4,5 +4,5 @@ export const serverRoutes: ServerRoute[] = [
   { path: '', renderMode: RenderMode.Prerender },
   { path: 'dashboard', renderMode: RenderMode.Prerender },
   { path: 'players', renderMode: RenderMode.Prerender },
-  { path: '**', renderMode: RenderMode.Server }
+  { path: '**', renderMode: RenderMode.Prerender  }
 ];
