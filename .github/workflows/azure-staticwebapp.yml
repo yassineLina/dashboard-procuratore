@@ -26,11 +26,11 @@ jobs:
         echo "Contenuto di dashboard-procuratore:"
         ls -la dashboard-procuratore/ || echo "Cartella non trovata"
         
-    # STEP 3: Setup Node.js
+    # STEP 3: Setup Node.js (usa una versione compatibile)
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20.19.0'  # Versione minima richiesta da Angular
         cache: 'npm'
         cache-dependency-path: 'dashboard-procuratore/package-lock.json'
         
