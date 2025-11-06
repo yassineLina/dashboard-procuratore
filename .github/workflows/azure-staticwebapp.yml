@@ -3,61 +3,38 @@ name: Deploy Angular App to Azure Static Web Apps
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    name: Build and Deploy Angular App
     
     steps:
-    # STEP 1: Checkout del codice
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
         
-    # STEP 2: Verifica la struttura dei file
-    - name: List project structure
-      run: |
-        echo "Struttura del repository:"
-        find . -name "package.json" -o -name "angular.json" | head -20
-        echo "Contenuto della root:"
-        ls -la
-        echo "Contenuto di dashboard-procuratore:"
-        ls -la dashboard-procuratore/ || echo "Cartella non trovata"
-        
-    # STEP 3: Setup Node.js (usa una versione compatibile)
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.19.0'  # Versione minima richiesta da Angular
+        node-version: '20.19.0'
         cache: 'npm'
         cache-dependency-path: 'dashboard-procuratore/package-lock.json'
         
-    # STEP 4: Installa dipendenze dalla cartella corretta
     - name: Install dependencies
       working-directory: ./dashboard-procuratore
-      run: |
-        echo "Installing npm dependencies from dashboard-procuratore folder..."
-        npm ci
-        echo "Dependencies installed successfully"
+      run: npm ci
         
-    # STEP 5: Build dell'app dalla cartella corretta
     - name: Build Angular app
       working-directory: ./dashboard-procuratore
       run: |
-        echo "Building Angular application..."
+        # Prova a buildare senza gli script di Bootstrap
         npm run build -- --configuration production
-        echo "Build completed"
         
-    # STEP 6: Verifica la build
     - name: Verify build output
       working-directory: ./dashboard-procuratore
       run: |
-        echo "Build output:"
-        ls -la dist/
+        echo "Build output structure:"
+        find dist/ -type f -name "*.js" | head -10
+        ls -la dist/dashboard-procuratore/
         
-    # STEP 7: Deploy to Azure
     - name: Deploy to Azure Static Web Apps
       uses: Azure/static-web-apps-deploy@v1
       with:
