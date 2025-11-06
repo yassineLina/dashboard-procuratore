@@ -19,8 +19,22 @@ export class PlayerService {
       phoneNumber: '+39 123 456 7890',
       email: 'mario.rossi@email.com',
       agentNotes: 'Giocatore promettente'
-    }
-    // Aggiungi altri giocatori qui...
+    },
+  {
+      id: 1,
+      name: 'Yassine',
+      surname: 'Elkharmoudi',
+      age: 25,
+      nationality: 'Marocco',
+      position: 'Defender',
+      currentTeam: 'Team A',
+      marketValue: 5000000,
+      contractExpiry: new Date('2024-12-31'),
+      phoneNumber: '+39 123 456 7890',
+      email: 'y.elkharm@email.com',
+      agentNotes: 'Giocatore promettente'
+    },
+ 
   ];
 
   getPlayers(): Player[] {
