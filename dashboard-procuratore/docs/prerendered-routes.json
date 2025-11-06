@@ -1,0 +1,7 @@
+{
+  "routes": {
+    "/dashboard-procuratore": {},
+    "/dashboard-procuratore/dashboard": {},
+    "/dashboard-procuratore/players": {}
+  }
+}
