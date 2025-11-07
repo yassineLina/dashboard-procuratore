@@ -1,15 +1,11 @@
 {
   "navigationFallback": {
-    "rewrite": "/dashboard-procuratore/index.html",
-    "exclude": ["/dashboard-procuratore/assets/*"]
+    "rewrite": "/index.html"
   },
   "globalHeaders": {
-    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com;"
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https:;"
   },
-  "routes": [
-    {
-      "route": "/dashboard-procuratore/*",
-      "rewrite": "/dashboard-procuratore/index.html"
-    }
-  ]
+  "mimeTypes": {
+    ".json": "text/json"
+  }
 }
